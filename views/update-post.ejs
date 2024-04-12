@@ -1,0 +1,16 @@
+<%- include("partials/header.ejs") %>
+<script type="module" src="index.js"></script>
+
+
+<h1>Update post <%= locals.Name %></h1>
+<form action="/finally-update" method="post">
+    <label for="postContent"><h2>Edit</h2></label>
+    <h4>Name</h4>
+    <input name="postName" id="postName" value=<%= locals.Name %> required></input>
+    <h4>Text</h4>
+    <input name="postText" id="postText" value=<%= locals.Text %>  required></input>
+    <br>
+    <br>
+    <input id="post-button" type="submit" value="Update">
+</form>
+<%- include("partials/footer.ejs") %>

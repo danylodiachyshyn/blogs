@@ -1,0 +1,15 @@
+<%- include("partials/header.ejs") %>
+
+<h1>Login</h1>
+<form action="/user-page" method="post">
+    <textarea name="inputUsername" id="login-username" cols="20" rows="1" placeholder="username" required></textarea>
+    <br>
+    <textarea name="inputPassword" id="login-password" cols="20" rows="1" placeholder="password" required></textarea>
+    <br>
+    <input type="submit" class="button" role="button" value="Log in">
+</form>
+
+
+
+
+<%- include("partials/footer.ejs") %>

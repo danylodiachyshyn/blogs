@@ -1,0 +1,27 @@
+<%- include("partials/header.ejs") %>
+<script type="module" src="index.js"></script>
+
+<h1>Recent posts</h1>
+<% if (!(locals.users.length === 0)) { %>
+    <% let containPosts = true; %>
+    <% let sum = 0; %>
+    <% locals.users.forEach(user => { %>
+        <% if (locals.user.username !== user.username) { %>
+            <% if (user.posts.length !== 0) { %>
+                <% user.posts.forEach(post => { %>
+                    <h3><%= user.username %></h3>
+                    <h4><%= post.name %></h4>
+                    <p><%= post.text %></p>
+                    <% sum += 1; %>
+                <% }) %>
+            <% } %>
+        <% } %>
+    <% }) %>
+    <% if (sum === 0) { %>
+        <h4>No posts there</h4>
+    <% } %>
+<% } %>
+
+
+<%- include("partials/footer.ejs") %>
+

@@ -1,0 +1,26 @@
+<%- include("partials/header.ejs") %>
+<script type="module" src="index.js"></script>
+
+
+<h1>Choose and delete post</h1>
+<form action="/delete-post" method="post">
+    <label for="postContent">Post name:</label>
+    <br>
+    <input name="postName" id="postName" placeholder="Enter post's name" required></input>
+    <br>
+    <input id="post-button" type="submit" value="Delete">
+</form>
+<h2>Your posts</h2>
+<% if (locals.user) { %>
+        <% if (locals.user.posts.length !== 0) { %>
+            <% locals.user.posts.forEach(post => { %>
+                <h4><%= post.name %></h4>
+                <p><%= post.text %></p>
+            <% }) %>
+        <% } %>
+<% } else { %>
+    <h4>No posts</h4>
+<% }%>
+
+
+<%- include("partials/footer.ejs") %>

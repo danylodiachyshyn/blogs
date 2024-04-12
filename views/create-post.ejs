@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+<script type="module" src="index.js"></script>
+
+<h1>Create your new post</h1>
+<form action="/post-new-post" method="post">
+    <label for="postContent">Post name:</label>
+    <br>
+    <input name="postName" id="postName" required></input>
+    <br>
+    <label for="postContent">Post Content:</label>
+    <br>
+    <textarea name="postContent" id="postContent" required></textarea>
+    <br>
+    <input id="post-button" type="submit" value="Post">
+</form>
+
+
+<%- include("partials/footer.ejs") %>

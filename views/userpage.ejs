@@ -1,0 +1,38 @@
+<%- include("partials/header.ejs") %>
+<script type="module" src="index.js"></script>
+
+<h1>Hello <%= locals.user.username %></h1>
+<form action="/create-post" method="post">
+    <input type="submit" class="button" role="button" value="Create post">
+</form>
+<br>
+<form action="/view" method="post">
+    <input type="submit" class="button" role="button" value="View other posts">
+</form>
+<br>
+<form action="/delete" method="post">
+    <input type="submit" class="button" role="button" value="Delete post">
+</form>
+<br>
+<form action="/update" method="post">
+    <input type="submit" class="button" role="button" value="Update post">
+</form>
+
+<h2>Your posts</h2>
+<% if (!(locals.user.posts.length === 0)) { %>
+    <% locals.user.posts.forEach(post => { %>
+        <h4><%= post.name %></h4>
+        <p><%= post.text %></p>
+    <% }) %>
+<% } else { %>
+    <h4>No posts yet, create new one</h4>
+    <form action="/create-post" method="post">
+        <input type="submit" class="button" role="button" value="Create post">
+    </form>
+<% }%>
+
+<br>
+<form action="/exit" method="post">
+    <input type="submit" class="button" role="button" value="Exit">
+</form>
+<%- include("partials/footer.ejs") %>
